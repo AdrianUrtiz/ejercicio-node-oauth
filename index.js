@@ -1,6 +1,9 @@
 // index.js
 import express from "express";
 import { AuthorizationCode } from "simple-oauth2";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = 4321;
@@ -8,8 +11,8 @@ const port = 4321;
 // Configuración de OAuth2
 const client = new AuthorizationCode({
   client: {
-    id: "Ov23liHvBOY9B4YICskp",
-    secret: "28ac25c54731456704159986cd81f0543a9e246e",
+    id: process.env.CLIENT_ID,
+    secret: process.env.CLIENT_SECRET,
   },
   auth: {
     tokenHost: "https://github.com",
